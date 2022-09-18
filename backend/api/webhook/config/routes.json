@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/webhook/signal-registry",
+      "handler": "webhook.signalRegistry",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

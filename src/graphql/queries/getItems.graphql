@@ -1,0 +1,8 @@
+query getItems {
+  items(where: { enabled: true }) {
+    id
+    name
+    description
+    recommendedUnitPrice
+  }
+}

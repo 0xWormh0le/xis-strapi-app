@@ -1,0 +1,85 @@
+image: sovtech/bitbucket-pipelines-node-aws:latest
+
+definitions:
+  services:
+    docker:
+      memory: 4096
+  steps:
+    - step: &build
+        size: 2x
+        deployment: test
+        caches:
+          - node
+        services:
+          - docker
+        script:
+          # Pull and build backend
+          - git clone git@bitbucket.org:sovtech/sxi-backend.git
+          - cd sxi-backend
+          - yarn
+          - yarn build
+          - (yarn start&)
+          - cd ../
+
+          # Build frontend
+          # Install CLI dependencies
+          - npm i -g graphql-cli
+          # Install app dependencies
+          - yarn --ignore-engines
+          - export HOST="localhost:1337"
+          - export REACT_APP_API_HOST=http://$HOST
+          # - export REACT_APP_BUGSNAG_API_KEY=123
+          - export REACT_APP_UNREGISTER_SERVICE_WORKER=true
+          - yarn generate
+          - unset REACT_APP_API_HOST
+          - yarn build
+          - cd build
+          - mkdir ../sxi-backend/vendor
+          - cp -a * ../sxi-backend/vendor
+          - cd ../sxi-backend
+          - export APP_IMAGE="xlayer.sxi.sovtech.org/fnbvendorportal/app:$(echo $BITBUCKET_COMMIT | cut -c1-7)"
+          - echo $APP_IMAGE
+          # Login to SXI registry
+          - docker login -u sxi -p pass@123 https://xlayer.sxi.sovtech.org
+          # Build App Image
+          - docker build -f Dockerfile -t fnbvendorportal/app .
+          # Tag App Image
+          - docker tag fnbvendorportal/app:latest $APP_IMAGE
+          # Push App Image
+          - docker push $APP_IMAGE
+
+pipelines:
+  custom:
+    deploy-to-dev:
+      - step: *build
+
+    deploy-to-uat:
+      - step:
+          <<: *build
+          deployment: staging
+
+    deploy-to-live:
+      - step:
+          <<: *build
+          deployment: production
+
+  branches:
+    # Auto deploy to DEV on merge to develop with option to promote
+    develop:
+      - step:
+          <<: *build
+          name: Deploy to DEV
+          deployment: test
+
+    # Auto deploy to UAT on merge to master with option to promote
+    master:
+      - step:
+          <<: *build
+          name: Deploy to UAT
+          deployment: staging
+
+      - step:
+          <<: *build
+          name: Deploy to LIVE
+          trigger: manual
+          deployment: production

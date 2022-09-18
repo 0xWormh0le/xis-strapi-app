@@ -1,0 +1,50 @@
+# Gets tickets of a contractor
+query getQuotes($ticketId: ID!) {
+  quotes(where: { ticket: { id: $ticketId } }) {
+    id
+    contractor {
+      username
+      email
+      confirmed
+      client {
+        name
+        vatNumber
+      }
+      quotes {
+        id
+      }
+      quotes {
+        id
+      }
+      contractorName
+    }
+    expiryDate
+    status
+    termsAndConditions
+    ticket {
+      id
+    }
+    items {
+      item {
+        id
+        name
+        description
+        recommendedUnitPrice
+      }
+      id
+      unitPrice
+      quantity
+      totalPrice
+      description
+    }
+    documents {
+      id
+      name
+      file {
+        url
+      }
+    }
+    created_at
+    updated_at
+  }
+}

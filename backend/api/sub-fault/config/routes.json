@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sub-faults",
+      "handler": "sub-fault.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sub-faults/count",
+      "handler": "sub-fault.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/sub-faults/:id",
+      "handler": "sub-fault.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/sub-faults",
+      "handler": "sub-fault.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sub-faults/:id",
+      "handler": "sub-fault.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sub-faults/:id",
+      "handler": "sub-fault.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

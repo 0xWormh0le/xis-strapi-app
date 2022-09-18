@@ -1,0 +1,14 @@
+# Get the configuration
+query getConfiguration {
+  configurations(sort: "created_at:DESC", limit: 1) {
+    showWarranty
+    showQuoteBuilder
+    showDocuments
+    showVendorInfo
+    showCiInfo
+    showClosingInfo
+    created_at
+  }
+}
+
+

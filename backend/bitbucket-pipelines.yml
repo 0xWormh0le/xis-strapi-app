@@ -1,0 +1,75 @@
+image: sovtech/bitbucket-pipelines-node-aws
+
+definitions:
+  services:
+    docker:
+      memory: 4096
+  steps:
+    - step: &build
+        size: 2x
+        deployment: test
+        caches:
+          - node
+        services:
+          - docker
+        script:
+          - sh frontend.sh
+          - echo $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)  > login.sh
+          - sh login.sh
+          - docker build -f Dockerfile -t $ECR_REPO_NAME .
+          - docker tag $ECR_REPO_NAME:latest $ECR_REPO_URI:latest
+          - docker push $ECR_REPO_URI:latest
+          - tmp=$(mktemp) && jq --arg a "$DATABASE_HOST" '.containerDefinitions[0].environment[0].value = $a' task-definition.json > "$tmp" && mv "$tmp" task-definition.json
+          - tmp=$(mktemp) && jq --arg a "$DATABASE_NAME" '.containerDefinitions[0].environment[1].value = $a' task-definition.json > "$tmp" && mv "$tmp" task-definition.json
+          - tmp=$(mktemp) && jq --arg a "$DATABASE_PASSWORD" '.containerDefinitions[0].environment[2].value = $a' task-definition.json > "$tmp" && mv "$tmp" task-definition.json
+          - tmp=$(mktemp) && jq --arg a "$DATABASE_PORT" '.containerDefinitions[0].environment[3].value = $a' task-definition.json > "$tmp" && mv "$tmp" task-definition.json
+          - tmp=$(mktemp) && jq --arg a "$DATABASE_USERNAME" '.containerDefinitions[0].environment[4].value = $a' task-definition.json > "$tmp" && mv "$tmp" task-definition.json
+          - tmp=$(mktemp) && jq --arg a "$HOST" '.containerDefinitions[0].environment[5].value = $a' task-definition.json > "$tmp" && mv "$tmp" task-definition.json
+          - tmp=$(mktemp) && jq --arg a "$STAGE" '.containerDefinitions[0].environment[6].value = $a' task-definition.json > "$tmp" && mv "$tmp" task-definition.json
+          - tmp=$(mktemp) && jq --arg a "$ECS_TASK_FAMILY" '.family = $a' task-definition.json > "$tmp" && mv "$tmp" task-definition.json
+          - chmod 666 task-definition.json
+          - pipe: atlassian/aws-ecs-deploy:1.0.3
+            variables:
+              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+              AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+              CLUSTER_NAME: $ECS_CLUSTER_NAME
+              SERVICE_NAME: $ECS_SERVICE_NAME
+              TASK_DEFINITION: "task-definition.json"
+              DEBUG: "true"
+
+pipelines:
+  custom:
+    deploy-to-dev:
+      - step: *build
+
+    deploy-to-uat:
+      - step:
+          <<: *build
+          deployment: staging
+
+    deploy-to-live:
+      - step:
+          <<: *build
+          deployment: production
+
+  branches:
+    # Auto deploy to DEV on merge to develop
+    develop:
+      - step:
+          <<: *build
+          name: Deploy to DEV
+          deployment: test
+
+    # Auto deploy to UAT on merge to master with option to promote
+    master:
+      - step:
+          <<: *build
+          name: Deploy to UAT
+          deployment: staging
+
+      - step:
+          <<: *build
+          name: Deploy to LIVE
+          trigger: manual
+          deployment: production

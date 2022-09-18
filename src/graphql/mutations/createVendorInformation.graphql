@@ -1,0 +1,11 @@
+mutation createVendorInformation($input: VendorInformationInput) {
+  createVendorInformation(input: { data: $input }) {
+    vendorInformation {
+      id
+      vendorRef
+      dispatchDate
+      expectedArrival
+      actualArrival
+    }
+  }
+}

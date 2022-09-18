@@ -1,0 +1,47 @@
+{
+  "connection": "default",
+  "collectionName": "quotes",
+  "info": {
+    "name": "Quote"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "expiryDate": {
+      "type": "date"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Sent",
+        "Approved",
+        "Rejected",
+        "Draft"
+      ]
+    },
+    "termsAndConditions": {
+      "type": "text"
+    },
+    "documents": {
+      "collection": "document",
+      "via": "quote"
+    },
+    "ticket": {
+      "via": "quotes",
+      "model": "ticket"
+    },
+    "contractor": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "quotes"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.items"
+    }
+  }
+}

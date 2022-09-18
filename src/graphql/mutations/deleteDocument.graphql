@@ -1,0 +1,7 @@
+mutation deleteDocument($id: ID!) {
+  deleteDocument(input: { where: { id: $id } }) {
+    document {
+      id
+    }
+  }
+}

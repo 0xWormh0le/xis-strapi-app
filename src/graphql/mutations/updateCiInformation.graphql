@@ -1,0 +1,10 @@
+mutation updateCiInformation($id: ID!, $input: editCiInformationInput) {
+  updateCiInformation(input: { where: { id: $id }, data: $input }) {
+    ciInformation {
+      id
+      ciName
+      serialNum
+      ciLocation
+    }
+  }
+}

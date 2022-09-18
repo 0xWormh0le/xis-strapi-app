@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "vendor-informations",
+  "info": {
+    "name": "Vendor Informations"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "vendorRef": {
+      "type": "string"
+    },
+    "dispatchDate": {
+      "type": "datetime"
+    },
+    "expectedArrival": {
+      "type": "datetime"
+    },
+    "actualArrival": {
+      "type": "datetime"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "components_items_items",
+  "info": {
+    "name": "items",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "model": "item"
+    },
+    "unitPrice": {
+      "type": "decimal"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "totalPrice": {
+      "type": "decimal"
+    },
+    "description": {
+      "type": "text"
+    },
+    "itemType": {
+      "model": "item-type"
+    }
+  }
+}

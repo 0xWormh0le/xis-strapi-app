@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/signal-registries",
+      "handler": "signal-registry.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/signal-registries/count",
+      "handler": "signal-registry.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/signal-registries/:id",
+      "handler": "signal-registry.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/signal-registries",
+      "handler": "signal-registry.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/signal-registries/:id",
+      "handler": "signal-registry.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/signal-registries/:id",
+      "handler": "signal-registry.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

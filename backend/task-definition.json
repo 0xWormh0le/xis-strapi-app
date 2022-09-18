@@ -1,0 +1,66 @@
+{
+  "executionRoleArn": "arn:aws:iam::114352680775:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "sxi-FargateDevelopmentTaskDefwebLogGroup70C8A72E-QKKYIWD179DO",
+          "awslogs-region": "eu-west-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "hostPort": 1337,
+          "protocol": "tcp",
+          "containerPort": 1337
+        }
+      ],
+      "cpu": 0,
+      "environment": [
+        {
+          "name": "DATABASE_HOST",
+          "value": ""
+        },
+        {
+          "name": "DATABASE_NAME",
+          "value": ""
+        },
+        {
+          "name": "DATABASE_PASSWORD",
+          "value": ""
+        },
+        {
+          "name": "DATABASE_PORT",
+          "value": ""
+        },
+        {
+          "name": "DATABASE_USERNAME",
+          "value": ""
+        },
+        {
+          "name": "HOST",
+          "value": ""
+        },
+        {
+          "name": "STAGE",
+          "value": ""
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "image": "114352680775.dkr.ecr.eu-west-1.amazonaws.com/sxi-develop-15icgnltn1n88",
+      "essential": true,
+      "name": "web"
+    }
+  ],
+  "placementConstraints": [],
+  "taskRoleArn": "arn:aws:iam::114352680775:role/ecsTaskExecutionRole",
+  "family": "sxiFargateDevelopmentTaskDef25272120",
+  "requiresCompatibilities": ["FARGATE"],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "memory": "512",
+  "volumes": []
+}

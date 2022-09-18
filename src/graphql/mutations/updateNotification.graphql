@@ -1,0 +1,29 @@
+mutation updateNotification($id: ID!, $input: editNotificationInput) {
+  updateNotification(input: { where: { id: $id }, data: $input }) {
+    notification {
+      id
+      read
+      title
+      description
+      ticket {
+        id
+        summary
+        status {
+          name
+        }
+        ticketSummary
+        warranty
+        location {
+          address
+        }
+      }
+      client {
+        id
+        name
+        vatNumber
+      }
+      created_at
+      updated_at
+    }
+  }
+}

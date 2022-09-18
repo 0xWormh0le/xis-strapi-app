@@ -1,0 +1,16 @@
+{
+  "connection": "default",
+  "collectionName": "sub-faults",
+  "info": {
+    "name": "Sub Faults"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "subFault": {
+      "type": "string"
+    }
+  }
+}

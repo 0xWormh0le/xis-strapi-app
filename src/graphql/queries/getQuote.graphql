@@ -1,0 +1,55 @@
+# Write your query or mutation here
+query getQuote($quoteId: ID!) {
+  quote(id: $quoteId) {
+    id
+    contractor {
+      username
+      email
+      confirmed
+      client {
+        name
+        vatNumber
+      }
+      quotes {
+        id
+      }
+      quotes {
+        id
+      }
+      contractorName
+    }
+    expiryDate
+    status
+    termsAndConditions
+    ticket {
+      id
+    }
+    items {
+      item {
+        id
+        name
+        description
+        recommendedUnitPrice
+      }
+      id
+      unitPrice
+      quantity
+      totalPrice
+      description
+      itemType {
+        id
+        name
+        description
+      }
+    }
+    documents {
+      id
+      name
+      file {
+        url
+      }
+    }
+    created_at
+    updated_at
+  }
+}

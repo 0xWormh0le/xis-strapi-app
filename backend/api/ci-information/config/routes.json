@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ci-informations",
+      "handler": "ci-information.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ci-informations/count",
+      "handler": "ci-information.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ci-informations/:id",
+      "handler": "ci-information.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/ci-informations",
+      "handler": "ci-information.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ci-informations/:id",
+      "handler": "ci-information.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/ci-informations/:id",
+      "handler": "ci-information.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

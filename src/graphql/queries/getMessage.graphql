@@ -1,0 +1,14 @@
+# Gets messages for a ticket
+query getMessage($ticketId: ID!, $messageId: ID!) {
+  messages(where: { ticket: { id: $ticketId }, id: $messageId }) {
+    id
+    title
+    description
+    ticket {
+      id
+      ticketNumber
+    }
+    created_at
+    updated_at
+  }
+}

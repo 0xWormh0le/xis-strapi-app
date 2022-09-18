@@ -1,0 +1,28 @@
+# Get the all notifications
+query getNotifications($clientId: ID!) {
+  notifications(where: { client: { id: $clientId }, read: false }) {
+    id
+    title
+    description
+    ticket {
+      id
+      summary
+      status {
+        name
+      }
+      ticketSummary
+      ticketNumber
+      warranty
+      location {
+        address
+      }
+    }
+		client {
+      id
+      name
+      vatNumber
+    }
+    created_at
+    updated_at
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "locations",
+  "info": {
+    "name": "Location"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "googleMaps": {
+      "type": "string"
+    }
+  }
+}

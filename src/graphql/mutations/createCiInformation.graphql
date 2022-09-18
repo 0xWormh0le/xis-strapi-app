@@ -1,0 +1,10 @@
+mutation createCiInformation($input: CiInformationInput) {
+  createCiInformation(input: { data: $input }) {
+    ciInformation {
+      id
+      ciName
+      serialNum
+      ciLocation
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "connection": "default",
+  "collectionName": "clients",
+  "info": {
+    "name": "Client"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "contractors": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "client"
+    },
+    "vatNumber": {
+      "type": "string"
+    },
+    "tickets": {
+      "via": "client",
+      "collection": "ticket"
+    },
+    "notifications": {
+      "via": "client",
+      "collection": "notifications"
+    }
+  }
+}

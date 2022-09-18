@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "notifications",
+  "info": {
+    "name": "notifications"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "ticket": {
+      "model": "ticket"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "read": {
+      "type": "boolean"
+    },
+    "client": {
+      "model": "client",
+      "via": "notifications"
+    }
+  }
+}

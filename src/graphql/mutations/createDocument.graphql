@@ -1,0 +1,12 @@
+mutation createDocument($input: DocumentInput) {
+  createDocument(input: { data: $input }) {
+    document {
+      id
+      name
+      file {
+        url
+      }
+      from
+    }
+  }
+}

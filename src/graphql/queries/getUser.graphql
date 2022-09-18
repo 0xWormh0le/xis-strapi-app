@@ -1,0 +1,21 @@
+# Write your query or mutation here
+query getUser($id: ID!) {
+  user(id: $id) {
+    id
+    username
+    email
+    confirmed
+    blocked
+    role {
+      id
+      name
+      description
+      type
+    }
+    client {
+      id
+      name
+      vatNumber
+    }
+  }
+}

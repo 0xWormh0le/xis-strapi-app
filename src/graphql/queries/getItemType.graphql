@@ -1,0 +1,7 @@
+query getItemTypes {
+  itemTypes(where: {enabled: true}) {
+    id
+    name
+    description
+  }
+}

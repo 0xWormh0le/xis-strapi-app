@@ -1,0 +1,23 @@
+{
+  "connection": "default",
+  "collectionName": "signal_registries",
+  "info": {
+    "name": "Signal Registries"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "action": {
+      "type": "string"
+    },
+    "entryId": {
+      "type": "integer"
+    },
+    "processedState": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

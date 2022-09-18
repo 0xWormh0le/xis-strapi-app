@@ -1,0 +1,22 @@
+{
+  "connection": "default",
+  "collectionName": "item_types",
+  "info": {
+    "name": "Item Types"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+# Gets tickets of a contractor
+query getTickets($filter: JSON) {
+  tickets(where: $filter) {
+    id
+    ticketNumber
+    requestedBy
+    location {
+      id
+      name
+      address
+      enabled
+      googleMaps
+    }
+    summary
+    status {
+      id
+      name
+      enabled
+      content
+      complete
+    }
+    warranty
+    client {
+      id
+      name
+      tickets {
+        id
+      }
+    }
+    ticketSummary
+    ticketSlaPriority
+    warrantyStartDate
+    warrantyEndDate
+    quoteAmount
+    created_at
+    updated_at
+    messages {
+      id
+      title
+      description
+      ticket {
+        id
+      }
+      created_at
+      updated_at
+    }
+    documents {
+      name
+      file {
+        url
+      }
+    }
+  }
+}

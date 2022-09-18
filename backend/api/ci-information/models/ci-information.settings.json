@@ -1,0 +1,22 @@
+{
+  "connection": "default",
+  "collectionName": "ci-informations",
+  "info": {
+    "name": "CI Information"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "ciName": {
+      "type": "string"
+    },
+    "serialNum": {
+      "type": "string"
+    },
+    "ciLocation": {
+      "type": "string"
+    }
+  }
+}

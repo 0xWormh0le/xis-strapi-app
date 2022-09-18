@@ -1,0 +1,12 @@
+mutation createSignalRegistry($input: SignalRegistryInput) {
+  createSignalRegistry(input: { data: $input }) {
+    signalRegistry {
+      id
+      action
+      entryId
+      processedState
+      created_at
+      updated_at
+    }
+  }
+}

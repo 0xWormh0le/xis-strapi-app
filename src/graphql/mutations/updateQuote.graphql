@@ -1,0 +1,46 @@
+mutation updateQuote($id: ID!, $input: editQuoteInput) {
+  updateQuote(input: { where: { id: $id }, data: $input }) {
+    quote {
+      id
+      contractor {
+        username
+        email
+        contractorName
+        client {
+          name
+        }
+      }
+      expiryDate
+      status
+      termsAndConditions
+      ticket {
+        id
+      }
+      items {
+        item {
+          id
+          name
+          description
+          recommendedUnitPrice
+        }
+        id
+        unitPrice
+        quantity
+        totalPrice
+        description
+        itemType {
+          id
+          name
+          description
+        }
+      }
+      documents {
+        id
+        name
+        file {
+          url
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "connection": "default",
+  "collectionName": "tickets",
+  "info": {
+    "name": "Ticket"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "location": {
+      "model": "location"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "status": {
+      "model": "status"
+    },
+    "warranty": {
+      "type": "boolean"
+    },
+    "client": {
+      "model": "client",
+      "via": "tickets"
+    },
+    "ticketSummary": {
+      "type": "richtext"
+    },
+    "warrantyStartDate": {
+      "type": "date"
+    },
+    "warrantyEndDate": {
+      "type": "date"
+    },
+    "quotes": {
+      "collection": "quote",
+      "via": "ticket"
+    },
+    "documents": {
+      "collection": "document"
+    },
+    "messages": {
+      "collection": "message",
+      "via": "ticket"
+    },
+    "ticketNumber": {
+      "type": "string"
+    },
+    "ticketSlaPriority": {
+      "type": "string"
+    },
+    "quoteAmount": {
+      "type": "decimal",
+      "min": 0
+    },
+    "requestedBy": {
+      "type": "string"
+    },
+    "vendor": {
+      "model": "vendor-information"
+    },
+    "ci": {
+      "model": "ci-information"
+    },
+    "resolutionCode": {
+      "model": "resolution-code"
+    },
+    "actualFault": {
+      "model": "actual-fault"
+    },
+    "subFault": {
+      "model": "sub-fault"
+    }
+  }
+}

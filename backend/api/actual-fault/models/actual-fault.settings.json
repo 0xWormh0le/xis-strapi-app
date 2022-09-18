@@ -1,0 +1,16 @@
+{
+  "connection": "default",
+  "collectionName": "actual-faults",
+  "info": {
+    "name": "Actual Faults"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "fault": {
+      "type": "string"
+    }
+  }
+}

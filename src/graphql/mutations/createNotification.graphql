@@ -1,0 +1,15 @@
+mutation createNotification($input: NotificationInput) {
+  createNotification(input: { data: $input }) {
+    notification {
+      id
+      client {
+        id
+      }
+      title
+      description
+      read
+      created_at
+      updated_at
+    }
+  }
+}

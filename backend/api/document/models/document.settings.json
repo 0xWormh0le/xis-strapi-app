@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "documents",
+  "info": {
+    "name": "Document"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "file": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "quote": {
+      "via": "documents",
+      "model": "quote"
+    },
+    "from": {
+      "type": "string"
+    }
+  }
+}

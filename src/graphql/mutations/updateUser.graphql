@@ -1,0 +1,17 @@
+mutation updateUser($id: ID!, $input: editUserInput) {
+  updateUser(input: { where: { id: $id }, data: $input }) {
+    user {
+      id
+      username
+      email
+      confirmed
+      blocked
+      role {
+        id
+        name
+        description
+        type
+      }
+    }
+  }
+}

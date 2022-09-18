@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "items",
+  "info": {
+    "name": "Item"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "recommendedUnitPrice": {
+      "type": "decimal"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

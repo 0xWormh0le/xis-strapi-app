@@ -1,0 +1,15 @@
+mutation createMessage($input: MessageInput) {
+  createMessage(input: { data: $input }) {
+    message {
+      id
+      title
+      description
+      ticket {
+        id
+        ticketNumber
+      }
+      created_at
+      updated_at
+    }
+  }
+}

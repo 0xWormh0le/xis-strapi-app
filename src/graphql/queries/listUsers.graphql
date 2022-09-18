@@ -1,0 +1,18 @@
+query ListUsers {
+  users {
+    id
+    created_at
+    updated_at
+    username
+    email
+    provider
+    confirmed
+    blocked
+    role {
+      id
+      name
+      description
+      type
+    }
+  }
+}

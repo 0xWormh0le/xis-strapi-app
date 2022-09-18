@@ -1,0 +1,16 @@
+{
+  "connection": "default",
+  "collectionName": "resolution-codes",
+  "info": {
+    "name": "Resolution Codes"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "resCode": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+# Write your query or mutation here
+query getTicket($ticketId: ID!) {
+  ticket(id: $ticketId) {
+    id
+    ticketNumber
+    requestedBy
+    location {
+      id
+      name
+      address
+      enabled
+      googleMaps
+    }
+    summary
+    status {
+      id
+      name
+      enabled
+      content
+      complete
+    }
+    warranty
+    client {
+      id
+      name
+      tickets {
+        id
+      }
+    }
+    ticketSummary
+    ticketSlaPriority
+    warrantyStartDate
+    warrantyEndDate
+    quoteAmount
+    created_at
+    updated_at
+    messages {
+      id
+      title
+      description
+      ticket {
+        id
+      }
+      created_at
+      updated_at
+    }
+    documents {
+      id
+      name
+      file {
+        url
+      }
+      created_at
+    }
+    vendor {
+      id
+      vendorRef
+      dispatchDate
+      expectedArrival
+      actualArrival
+    }
+    ci {
+      id
+      ciName
+      serialNum
+      ciLocation
+    }
+    resolutionCode {
+      id
+      resCode
+    }
+    actualFault {
+      id
+      fault
+    }
+    subFault {
+      id
+      subFault
+    }
+  }
+}

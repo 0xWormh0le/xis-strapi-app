@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/actual-faults",
+      "handler": "actual-fault.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/actual-faults/count",
+      "handler": "actual-fault.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/actual-faults/:id",
+      "handler": "actual-fault.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/actual-faults",
+      "handler": "actual-fault.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/actual-faults/:id",
+      "handler": "actual-fault.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/actual-faults/:id",
+      "handler": "actual-fault.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

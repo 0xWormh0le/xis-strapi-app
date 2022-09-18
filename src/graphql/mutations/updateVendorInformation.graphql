@@ -1,0 +1,11 @@
+mutation updateVendorInformation($id: ID!, $input: editVendorInformationInput) {
+  updateVendorInformation(input: { where: { id: $id }, data: $input }) {
+    vendorInformation {
+      id
+      vendorRef
+      dispatchDate
+      expectedArrival
+      actualArrival
+    }
+  }
+}

@@ -1,0 +1,7 @@
+mutation deleteQuote($id: ID!) {
+  deleteQuote(input: { where: { id: $id } }) {
+    quote {
+      id
+    }
+  }
+}

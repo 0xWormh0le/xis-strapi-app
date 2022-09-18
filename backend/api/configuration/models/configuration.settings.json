@@ -1,0 +1,31 @@
+{
+  "info": {
+    "name": "configuration"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "showWarranty": {
+      "type": "boolean"
+    },
+    "showQuoteBuilder": {
+      "type": "boolean"
+    },
+    "showDocuments": {
+      "type": "boolean"
+    },
+    "showVendorInfo": {
+      "type": "boolean"
+    },
+    "showCiInfo": {
+      "type": "boolean"
+    },
+    "showClosingInfo": {
+      "type": "boolean"
+    }
+  },
+  "connection": "default",
+  "collectionName": "configurations"
+}

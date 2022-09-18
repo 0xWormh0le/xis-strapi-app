@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/resolution-codes",
+      "handler": "resolution-code.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/resolution-codes/count",
+      "handler": "resolution-code.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/resolution-codes/:id",
+      "handler": "resolution-code.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/resolution-codes",
+      "handler": "resolution-code.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/resolution-codes/:id",
+      "handler": "resolution-code.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/resolution-codes/:id",
+      "handler": "resolution-code.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
